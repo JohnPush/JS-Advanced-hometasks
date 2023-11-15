@@ -6,18 +6,17 @@ let arrObj = [
     {id: 1, user: "Vasy"}
 ];
 
-function stringifyObject(obj) {
-    return JSON.stringify(obj);
-}
+const uniqueSet = new Set();
+const uniqueArr = arrObj.map(item => {
+  const isUnique = !uniqueSet.has(item.id);
 
-let arrStrings = arrObj.map(stringifyObject);
+  if (isUnique) {
+    uniqueSet.add(item.id);
+    return item;
+  }
 
-let uniqueStrings = [...new Set(arrStrings)];
+  return null;
+})
+.filter(item => item !== null);
 
-let uniqueObjects = uniqueStrings.map(JSON.parse);
-
-console.log(arrObj)
-console.log(stringifyObject(arrObj))
-console.log(arrStrings)
-console.log(uniqueStrings)
-console.log(uniqueObjects)
+console.log(uniqueArr);

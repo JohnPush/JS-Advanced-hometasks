@@ -2,8 +2,7 @@
 
 
 function random(dice) {
-	const randomNumber = Math.floor(Math.random() * dice.slice(1) + 1);
-	return `${dice}: ${randomNumber}`
+	return `${dice}: ${Math.floor(Math.random() * dice.slice(1) + 1)}`
 }
 console.log(random('d4'));
 console.log(random('d6'));
