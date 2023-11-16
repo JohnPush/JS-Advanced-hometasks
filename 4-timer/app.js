@@ -14,6 +14,6 @@ function countdown() {
     const countdownString = months + ' месяцев, ' + days + ' дней, ' + hours + ' часов, ' + minutes + ' минут, ' + seconds + ' секунд';
     
 	document.getElementById("timerNewYear").innerHTML = countdownString;
+    setTimeout(countdown, 1000);
 }
-setInterval(countdown, 1000);
 countdown();
