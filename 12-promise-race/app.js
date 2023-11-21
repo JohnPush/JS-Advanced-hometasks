@@ -1,6 +1,9 @@
 'use strict';
 
 function race(promises) {
+  if (!Array.isArray(promises) || promises.length === 0) {
+    return Promise.reject(new Error('Empty array.'));
+  }
   return new Promise((resolve, reject) => {
     promises.forEach((promise) => {
       promise.then((result) => {
